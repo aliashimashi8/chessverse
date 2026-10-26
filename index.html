@@ -14,9 +14,67 @@
 .settings-panel{margin-top:18px;padding:16px;background:linear-gradient(145deg,#101a15,#0c1410);border:1px solid var(--line);border-radius:15px}.settings-title,.setting-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.settings-title{font-weight:800;margin-bottom:17px}.settings-title small{font-size:11px;color:var(--muted);font-weight:400}.setting-label{display:block;color:var(--muted);font-size:13px;margin:13px 0 8px}.theme-select{width:100%;background:#101a15;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px}.theme-swatches{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0 18px}.theme-swatches button{width:28px;height:28px;border-radius:9px;border:2px solid #ffffff30;box-shadow:0 0 0 1px #0005;transition:.15s}.theme-swatches button.active{outline:2px solid var(--green);outline-offset:3px}.theme-swatches [data-theme="classic"]{background:linear-gradient(135deg,#e4e9d8 50%,#729078 50%)}.theme-swatches [data-theme="ocean"]{background:linear-gradient(135deg,#d8e8ef 50%,#4389a5 50%)}.theme-swatches [data-theme="purple"]{background:linear-gradient(135deg,#eadcf8 50%,#8462ad 50%)}.theme-swatches [data-theme="sunset"]{background:linear-gradient(135deg,#ffe2b5 50%,#d47b55 50%)}.theme-swatches [data-theme="rose"]{background:linear-gradient(135deg,#f8dfe7 50%,#c16b89 50%)}.theme-swatches [data-theme="mono"]{background:linear-gradient(135deg,#ececec 50%,#666 50%)}.theme-swatches [data-theme="ice"]{background:linear-gradient(135deg,#e5f5ff 50%,#81b5d6 50%)}.theme-swatches [data-theme="amber"]{background:linear-gradient(135deg,#f6e6bd 50%,#ba8a3c 50%)}.theme-swatches [data-theme="cherry"]{background:linear-gradient(135deg,#f7dce2 50%,#9c4258 50%)}.theme-swatches [data-theme="mint"]{background:linear-gradient(135deg,#d9f1df 50%,#5d9e81 50%)}.size-range{width:100%;accent-color:var(--green);cursor:pointer}.range-hints{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.setting-row output{font-size:12px;color:var(--green);font-weight:800}
 body.theme-classic{--sq-light:#e4e9d8;--sq-dark:#729078}body.theme-ocean{--sq-light:#d8e8ef;--sq-dark:#4389a5}body.theme-purple{--sq-light:#eadcf8;--sq-dark:#8462ad}body.theme-sunset{--sq-light:#ffe2b5;--sq-dark:#d47b55}body.theme-rose{--sq-light:#f8dfe7;--sq-dark:#c16b89}body.theme-mono{--sq-light:#ececec;--sq-dark:#666}body.theme-ice{--sq-light:#e5f5ff;--sq-dark:#81b5d6}body.theme-amber{--sq-light:#f6e6bd;--sq-dark:#ba8a3c}body.theme-cherry{--sq-light:#f7dce2;--sq-dark:#9c4258}body.theme-mint{--sq-light:#d9f1df;--sq-dark:#5d9e81}
 #board .white-1e1d7{background-color:var(--sq-light,#f0d9b5)!important}#board .black-3c85d{background-color:var(--sq-dark,#b58863)!important}#board .piece-417db{transform:scale(var(--piece-scale,1));transform-origin:center center}
+
+/* ChessVerse app shell */
+body{transition:padding .22s ease}
+body:not(.side-left){padding-right:250px}
+body.side-left{padding-left:250px;padding-right:0}
+.app-sidebar{position:fixed;z-index:50;top:0;bottom:0;right:0;width:250px;background:linear-gradient(180deg,#101a16,#0a100d);border-left:1px solid #263a30;display:flex;flex-direction:column;padding:16px 12px;overflow-y:auto;transition:width .22s,right .22s,left .22s}
+body.side-left .app-sidebar{right:auto;left:0;border-left:0;border-right:1px solid #263a30}
+.sidebar-brand{display:flex;align-items:center;gap:10px;padding:7px 9px 19px;border-bottom:1px solid #ffffff10;margin-bottom:14px;font-size:18px;font-weight:800;white-space:nowrap}
+.sidebar-brand .logo{flex-shrink:0}.sidebar-brand span{color:var(--green)}
+.sidebar-cap{font-size:10px;letter-spacing:1.3px;color:#72867a;padding:12px 11px 7px}
+.sidebar-link{display:flex;align-items:center;gap:12px;width:100%;border:1px solid transparent;background:transparent;color:#a9bbb0;text-align:right;padding:11px 12px;border-radius:11px;margin:2px 0;white-space:nowrap;font-size:13px}
+.sidebar-link .nav-ico{width:24px;flex:0 0 24px;text-align:center;font-size:18px}
+.sidebar-link:hover{background:#ffffff08;color:#fff}.sidebar-link.active{background:#a3e63518;border-color:#a3e63525;color:#d5f9a8}
+.sidebar-bottom{margin-top:auto;padding-top:14px;border-top:1px solid #ffffff10}
+.sidebar-link.utility{background:#ffffff06}
+.sidebar-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sidebar-toggle{background:#1a2921;color:#c8d8ce;border:1px solid #304337;border-radius:9px;padding:8px 10px}
+body.sidebar-collapsed:not(.side-left){padding-right:76px}
+body.sidebar-collapsed.side-left{padding-left:76px}
+body.sidebar-collapsed .app-sidebar{width:76px;padding:14px 8px}
+body.sidebar-collapsed .sidebar-brand .brand-name,body.sidebar-collapsed .sidebar-link .nav-label,body.sidebar-collapsed .sidebar-cap{display:none}
+body.sidebar-collapsed .sidebar-brand{justify-content:center;padding:7px 0 18px}
+body.sidebar-collapsed .sidebar-link{justify-content:center;padding:12px 5px}
+body.sidebar-collapsed .sidebar-link .nav-ico{width:auto;flex:auto}
+.topbar{padding-top:0}
+.page-heading-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.hub-card{background:linear-gradient(145deg,#14221b,#0e1712);border:1px solid var(--line);border-radius:16px;padding:18px;min-height:135px}
+.hub-card .hub-ico{font-size:24px;margin-bottom:10px}.hub-card h3{margin:0 0 7px;font-size:15px}.hub-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+.action-strip{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.status-line{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}
+@media(max-width:850px){body:not(.sidebar-collapsed){padding-right:76px}body.side-left:not(.sidebar-collapsed){padding-left:76px;padding-right:0}.app-sidebar{width:76px;padding:14px 8px}.sidebar-brand .brand-name,.sidebar-link .nav-label,.sidebar-cap{display:none}.sidebar-brand{justify-content:center;padding:7px 0 18px}.sidebar-link{justify-content:center;padding:12px 5px}.sidebar-link .nav-ico{width:auto;flex:auto}.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding-left:18px;padding-right:18px}}
+@media(max-width:520px){.feature-grid{grid-template-columns:1fr}.app-sidebar{width:62px;padding:10px 5px}.sidebar-link{padding:11px 3px}.sidebar-link .nav-ico{font-size:17px}body:not(.side-left){padding-right:62px}body.side-left{padding-left:62px;padding-right:0}body.sidebar-collapsed:not(.side-left){padding-right:62px}body.sidebar-collapsed.side-left{padding-left:62px}.sidebar-brand .logo{width:34px;height:34px}.topbar>.btn{font-size:11px}}
+
 </style>
 </head>
 <body>
+
+<aside class="app-sidebar" id="appSidebar" aria-label="منوی اصلی">
+  <div class="sidebar-top"><div class="sidebar-brand"><div class="logo">♞</div><div class="brand-name">Chess<span>Verse</span></div></div><button class="sidebar-toggle" id="collapseSidebar" aria-label="جمع کردن منو" title="جمع/باز کردن منو">⇔</button></div>
+  <div class="sidebar-cap">بازی</div>
+  <button class="sidebar-link active" data-go="play" title="بازی شطرنج"><span class="nav-ico">♟</span><span class="nav-label">بازی شطرنج</span></button>
+  <button class="sidebar-link" data-go="puzzles" title="معماهای شطرنج"><span class="nav-ico">🧩</span><span class="nav-label">معماهای شطرنج</span></button>
+  <button class="sidebar-link" data-go="analysis" title="تحلیل و بررسی"><span class="nav-ico">⌕</span><span class="nav-label">تحلیل و بررسی بازی</span></button>
+  <button class="sidebar-link" data-go="openings" title="گشایش‌ها"><span class="nav-ico">♜</span><span class="nav-label">آموزش گشایش‌ها</span></button>
+  <button class="sidebar-link" data-go="archive" title="بازی‌های ذخیره‌شده"><span class="nav-ico">▤</span><span class="nav-label">بازی‌های ذخیره‌شده</span></button>
+  <div class="sidebar-cap">یادگیری و رقابت</div>
+  <button class="sidebar-link" data-go="learn" title="آکادمی"><span class="nav-ico">🎓</span><span class="nav-label">آکادمی شطرنج</span></button>
+  <button class="sidebar-link" data-go="tournaments" title="مسابقات"><span class="nav-ico">🏆</span><span class="nav-label">مسابقات</span></button>
+  <button class="sidebar-link" data-go="clubs" title="باشگاه‌ها"><span class="nav-ico">♞</span><span class="nav-label">باشگاه‌ها</span></button>
+  <button class="sidebar-link" data-go="leagues" title="لیگ‌ها"><span class="nav-ico">♛</span><span class="nav-label">لیگ‌ها و جدول‌ها</span></button>
+  <div class="sidebar-cap">اجتماعی</div>
+  <button class="sidebar-link" data-go="friends" title="دوستان"><span class="nav-ico">♙</span><span class="nav-label">دوستان و دعوت</span></button>
+  <button class="sidebar-link" data-go="profile" title="پروفایل"><span class="nav-ico">◉</span><span class="nav-label">پروفایل بازیکن</span></button>
+  <div class="sidebar-bottom">
+    <button class="sidebar-link" data-go="settings" title="تنظیمات"><span class="nav-ico">⚙</span><span class="nav-label">تنظیمات و ظاهر</span></button>
+    <button class="sidebar-link utility" id="moveSidebar" title="انتقال منو به سمت دیگر"><span class="nav-ico">⇄</span><span class="nav-label">انتقال نوار به سمت دیگر</span></button>
+    <button class="sidebar-link utility" data-go="home" title="خانه"><span class="nav-ico">⌂</span><span class="nav-label">خانه ChessVerse</span></button>
+  </div>
+</aside>
+
 <header class="wrap topbar"><div class="brand"><div class="logo">♞</div>Chess<span>Verse</span></div><nav><button class="active" data-go="home">خانه</button><button data-go="play">بازی شطرنج</button><button data-go="clubs">باشگاه‌ها</button><button data-go="leagues">لیگ‌ها</button><button data-go="learn">یادگیری</button></nav><button class="btn" data-go="play">شروع بازی ↗</button></header>
 <main class="wrap">
 <section id="home" class="page">
@@ -33,18 +91,81 @@ body.theme-classic{--sq-light:#e4e9d8;--sq-dark:#729078}body.theme-ocean{--sq-li
 <section id="clubs" class="page hidden section"><div class="section-title"><div><h2>باشگاه‌ها</h2><p>باشگاه‌های موردعلاقه‌ات رو روی همین دستگاه فهرست کن.</p></div></div><div class="side-card"><div class="input-row"><input id="clubName" placeholder="مثلاً: شوالیه‌های شب"><button class="btn" id="addClub">ساخت باشگاه</button></div><p class="notice">این فهرست محلی است؛ هنوز حساب کاربری یا باشگاه آنلاین ایجاد نمی‌کند.</p><div class="list" id="clubList" style="margin-top:18px"></div></div></section>
 <section id="leagues" class="page hidden section"><div class="section-title"><div><h2>لیگ‌ها و رقابت‌ها</h2><p>برای رقابت بعدی‌ات یک عنوان انتخاب کن.</p></div></div><div class="side-card"><div class="input-row"><input id="leagueName" placeholder="مثلاً: جام آخر هفته"><button class="btn" id="addLeague">افزودن لیگ</button></div><div class="list" id="leagueList" style="margin-top:18px"></div><p class="notice">ساخت جدول امتیازات و رقابت چندنفره در نسخه‌ی بعدی قابل اضافه شدن است.</p></div></section>
 <section id="learn" class="page hidden section"><div class="section-title"><div><h2>آکادمی شطرنج</h2><p>چند اصل پایه برای شروع بهتر.</p></div></div><div class="lesson-grid"><article class="lesson"><b>درس ۰۱</b><h3>کنترل مرکز</h3><p>خانه‌های مرکزی به مهره‌ها فضای بیشتری برای حرکت می‌دن. سعی کن با پیاده‌ها و مهره‌ها روی مرکز اثر بذاری.</p></article><article class="lesson"><b>درس ۰۲</b><h3>توسعه‌ی مهره‌ها</h3><p>اسب‌ها و فیل‌ها رو زود وارد بازی کن و از حرکت دادن مکرر یک مهره بدون دلیل دوری کن.</p></article><article class="lesson"><b>درس ۰۳</b><h3>امنیت شاه</h3><p>قلعه رفتن معمولاً به امن شدن شاه و فعال شدن رخ کمک می‌کنه؛ زمان مناسبش رو با توجه به موقعیت انتخاب کن.</p></article><article class="lesson"><b>درس ۰۴</b><h3>قبل از حرکت فکر کن</h3><p>از خودت بپرس: حریف چه تهدیدی داره؟ آیا مهره‌ای بدون دفاعه؟ حرکت من چه چیزی رو تهدید می‌کنه؟</p></article><article class="lesson"><b>درس ۰۵</b><h3>ارزش مهره‌ها</h3><p>به‌صورت تقریبی: پیاده ۱، اسب و فیل ۳، رخ ۵ و وزیر ۹ امتیاز دارن. موقعیت از عددها مهم‌تره.</p></article><article class="lesson"><b>درس ۰۶</b><h3>تمرین و مرور</h3><p>بعد از هر بازی، لحظه‌ای رو پیدا کن که برنامه‌ات تغییر کرد یا مهره‌ای از دست رفت و دلیلش رو بررسی کن.</p></article></div></section>
+
+<section id="puzzles" class="page hidden section">
+ <div class="page-heading-row"><div><h2>معماهای شطرنج</h2><p class="muted">تمرین تاکتیک با یک معمای نمونه؛ مجموعه‌ی آنلاین هنوز به سرور نیاز دارد.</p></div><span class="pill">تمرین</span></div>
+ <div class="feature-grid">
+  <article class="hub-card"><div class="hub-ico">♞</div><h3>حمله‌ی دوگانه</h3><p>در شطرنج، یک حرکت می‌تواند هم‌زمان دو تهدید بسازد. قبل از حرکت، کیش‌ها و گرفتن مهره‌ها را بررسی کن.</p><button class="btn secondary" style="margin-top:14px" id="puzzleHint">راهنمایی</button><p id="puzzleHintText" class="notice hidden">به حرکت‌هایی فکر کن که با تمپو به شاه حمله می‌کنند و هم‌زمان مهره‌ی دیگری را هدف می‌گیرند.</p></article>
+  <article class="hub-card"><div class="hub-ico">♛</div><h3>چک‌لیست تاکتیکی</h3><p>کیش، گرفتن، تهدید؛ این سه مورد را قبل از هر حرکت بررسی کن.</p></article>
+  <article class="hub-card"><div class="hub-ico">🎯</div><h3>تمرین روزانه</h3><p>زیرساخت آماده‌ی اضافه‌شدن معماهای واقعی و ثبت امتیاز است؛ فعلاً رتبه‌بندی معما فعال نیست.</p></article>
+ </div>
+</section>
+<section id="analysis" class="page hidden section">
+ <div class="page-heading-row"><div><h2>تحلیل و بررسی</h2><p class="muted">مرور حرکت‌ها، وضعیت بازی و خروجی PGN از بازی فعلی.</p></div><span class="pill">ابزارهای محلی</span></div>
+ <div class="feature-grid"><article class="hub-card"><div class="hub-ico">⌕</div><h3>وضعیت فعلی</h3><p id="analysisSummary">بازی را از بخش میز بازی شروع کن تا وضعیت اینجا نمایش داده شود.</p><button class="btn secondary" data-go="play" style="margin-top:14px">رفتن به میز بازی</button></article><article class="hub-card"><div class="hub-ico">♙</div><h3>ارزیابی مادی ساده</h3><p>تعداد و ارزش تقریبی مهره‌های هر طرف؛ این ارزیابی جای موتور Stockfish را نمی‌گیرد.</p><div id="materialSummary" class="status-line">پس از شروع بازی محاسبه می‌شود.</div></article><article class="hub-card"><div class="hub-ico">▤</div><h3>خروجی بازی</h3><p>بازی فعلی را با قالب PGN ذخیره کن و در نرم‌افزارهای شطرنج بازش کن.</p><button class="btn" id="exportPgn" style="margin-top:14px">دریافت PGN</button></article></div>
+</section>
+<section id="openings" class="page hidden section">
+ <div class="page-heading-row"><div><h2>کتابخانه‌ی گشایش‌ها</h2><p class="muted">مسیرهای شروع بازی و ایده‌ی اصلی هرکدام.</p></div></div>
+ <div class="feature-grid">
+  <article class="hub-card"><div class="hub-ico">♟</div><h3>گشایش ایتالیایی</h3><p>۱.e4 e5 ۲.Nf3 Nc6 ۳.Bc4 — توسعه‌ی سریع و فشار روی مرکز و خانه‌ی f7.</p><button class="btn secondary opening-load" data-fen="r1bqk1nr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 4" style="margin-top:12px">نمایش موقعیت</button></article>
+  <article class="hub-card"><div class="hub-ico">♜</div><h3>دفاع سیسیلی</h3><p>۱.e4 c5 — سیاه برای کنترل مرکز از جناح وزیر مقابله می‌کند و بازی نامتقارن می‌سازد.</p></article>
+  <article class="hub-card"><div class="hub-ico">♞</div><h3>گشایش اسپانیایی</h3><p>۱.e4 e5 ۲.Nf3 Nc6 ۳.Bb5 — فشار بلندمدت روی اسب c6 و مرکز سیاه.</p></article>
+  <article class="hub-card"><div class="hub-ico">♙</div><h3>گامبی وزیر</h3><p>۱.d4 d5 ۲.c4 — سفید برای کنترل مرکز به پیاده‌ی d5 فشار می‌آورد.</p></article>
+  <article class="hub-card"><div class="hub-ico">♝</div><h3>دفاع فرانسوی</h3><p>۱.e4 e6 — سیاه آماده‌ی چالش مرکزی با ...d5 می‌شود.</p></article>
+  <article class="hub-card"><div class="hub-ico">📚</div><h3>برنامه‌ی یادگیری</h3><p>به‌جای حفظ‌کردن حرکات، ایده‌ی مرکزی، توسعه‌ی مهره‌ها و امنیت شاه را یاد بگیر.</p></article>
+ </div>
+</section>
+<section id="archive" class="page hidden section">
+ <div class="page-heading-row"><div><h2>بازی‌های ذخیره‌شده</h2><p class="muted">ذخیره‌ی محلی در همین مرورگر؛ بازی‌ها هنوز بین دستگاه‌ها همگام نمی‌شوند.</p></div><button class="btn" id="saveGame">ذخیره‌ی بازی فعلی</button></div>
+ <div class="side-card"><div id="savedGames" class="list"><p class="muted">هنوز بازی‌ای ذخیره نشده.</p></div></div>
+</section>
+<section id="tournaments" class="page hidden section">
+ <div class="page-heading-row"><div><h2>مسابقات</h2><p class="muted">بخش مسابقات در حال آماده‌سازی است.</p></div></div>
+ <div class="feature-grid"><article class="hub-card"><div class="hub-ico">🏆</div><h3>مسابقه‌ی سریع</h3><p>برای مسابقات واقعی باید حساب کاربری، سرور بازی و ساعت هماهنگ داشته باشیم.</p></article><article class="hub-card"><div class="hub-ico">♟</div><h3>جدول رده‌بندی</h3><p>امتیاز و رتبه‌بندی آنلاین تا زمانی که سرور ساخته نشود، واقعی نیست.</p></article><article class="hub-card"><div class="hub-ico">📅</div><h3>برنامه‌ی مسابقات</h3><p>این بخش به‌عنوان جایگاه مسابقات آینده در رابط اضافه شده است.</p></article></div>
+</section>
+<section id="friends" class="page hidden section">
+ <div class="page-heading-row"><div><h2>دوستان و دعوت</h2><p class="muted">این فرم فعلاً فهرست محلی نگه می‌دارد؛ دعوت واقعی به سرور و حساب کاربری نیاز دارد.</p></div></div>
+ <div class="side-card"><div class="input-row"><input id="friendName" placeholder="نام دوست یا نام کاربری"><button class="btn" id="addFriend">افزودن به فهرست</button></div><div id="friendList" class="list" style="margin-top:18px"></div></div>
+</section>
+<section id="profile" class="page hidden section">
+ <div class="page-heading-row"><div><h2>پروفایل بازیکن</h2><p class="muted">پروفایل محلی این مرورگر، بدون ورود یا رتبه‌ی آنلاین.</p></div></div>
+ <div class="side-card"><label class="setting-label" for="profileName">نام نمایشی</label><div class="input-row"><input id="profileName" placeholder="نام بازیکن"><button class="btn" id="saveProfile">ذخیره‌ی پروفایل</button></div><p id="profileStatus" class="notice">نام نمایشی فقط روی همین دستگاه ذخیره می‌شود.</p></div>
+</section>
+<section id="settings" class="page hidden section">
+ <div class="page-heading-row"><div><h2>تنظیمات و ظاهر</h2><p class="muted">چیدمان رابط را مطابق سلیقه‌ات تغییر بده.</p></div></div>
+ <div class="feature-grid"><article class="hub-card"><div class="hub-ico">⇄</div><h3>جای نوار کناری</h3><p>نوار کناری را سمت چپ یا راست قرار بده.</p><div class="action-strip"><button class="btn secondary" id="settingsSidebarLeft">سمت چپ</button><button class="btn secondary" id="settingsSidebarRight">سمت راست</button></div></article><article class="hub-card"><div class="hub-ico">▣</div><h3>فضای بیشتر</h3><p>نوار کناری را جمع کن یا دوباره بازش کن.</p><button class="btn secondary" id="settingsCollapse" style="margin-top:12px">جمع/باز کردن نوار</button></article><article class="hub-card"><div class="hub-ico">🎨</div><h3>شخصی‌سازی صفحه</h3><p>از میز بازی می‌توانی تم خانه‌های صفحه و اندازه‌ی مهره‌ها را تغییر بدهی.</p><button class="btn" data-go="play" style="margin-top:12px">باز کردن تنظیمات صفحه</button></article></div>
+</section>
+
 </main><footer class="wrap footer"><span>♞ ChessVerse — حرکت بعدی با توست.</span><span>نسخه‌ی اولیه • ساخته‌شده برای شروع مسیر</span></footer><div class="toast" id="toast"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.js"></script>
 <script>
 const $=s=>document.querySelector(s);function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
-function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hidden',p.id!==id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.go===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='play'&&window.board) setTimeout(()=>board.resize(),80)}
+function go(id){const page=document.getElementById(id);if(!page)return;document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hidden',p.id!==id));document.querySelectorAll('nav button,.sidebar-link[data-go]').forEach(b=>b.classList.toggle('active',b.dataset.go===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='play'&&window.board)setTimeout(()=>board.resize(),80);if(id==='analysis')refreshAnalysis();if(id==='archive')renderSavedGames();if(id==='friends')renderFriends();if(id==='profile')loadProfile()}
 document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+function setSidebarSide(side){document.body.classList.toggle('side-left',side==='left');try{localStorage.setItem('cv_sidebar_side',side)}catch(e){}}
+function toggleSidebar(){document.body.classList.toggle('sidebar-collapsed');try{localStorage.setItem('cv_sidebar_collapsed',document.body.classList.contains('sidebar-collapsed')?'1':'0')}catch(e){}}
+$('#collapseSidebar').addEventListener('click',toggleSidebar);$('#moveSidebar').addEventListener('click',()=>setSidebarSide(document.body.classList.contains('side-left')?'right':'left'));$('#settingsSidebarLeft').addEventListener('click',()=>setSidebarSide('left'));$('#settingsSidebarRight').addEventListener('click',()=>setSidebarSide('right'));$('#settingsCollapse').addEventListener('click',toggleSidebar);
+try{setSidebarSide(localStorage.getItem('cv_sidebar_side')||'right');if(localStorage.getItem('cv_sidebar_collapsed')==='1')document.body.classList.add('sidebar-collapsed')}catch(e){}
+$('#puzzleHint').addEventListener('click',()=>$('#puzzleHintText').classList.toggle('hidden'));
+
 const miniStart=['♜','♞','♝','♛','♚','♝','♞','♜','♟','♟','♟','♟','♟','♟','♟','♟','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','♙','♙','♙','♙','♙','♙','♙','♙','♖','♘','♗','♕','♔','♗','♘','♖'];const mini=$('#miniBoard');for(let r=0;r<8;r++)for(let c=0;c<8;c++){let sq=document.createElement('div');sq.className='sq '+((r+c)%2?'dark':'light');sq.textContent=miniStart[r*8+c]||'';if(r<2)sq.style.color='#17251f';else if(r>5)sq.style.color='#f9fbf3';mini.appendChild(sq)}
-let game,board,pieceSet='wikipedia';function update(){if(!game)return;$('#turnLabel').textContent=game.turn()==='w'?'نوبت سفید':'نوبت سیاه';const hist=game.history();$('#moveList').textContent=hist.length?hist.reduce((a,m,i)=>{if(i%2===0)a.push((Math.floor(i/2)+1)+'. '+m);else a[a.length-1]+='  '+m;return a},[]).join('   |   '):'هنوز حرکتی انجام نشده.';$('#gameStatus').textContent=game.in_checkmate()?'کیش‌ومات! بازی تمام شد.':game.in_draw()?'بازی مساوی شد.':game.in_check()?'کیش! شاه در خطر است.':game.game_over()?'بازی تمام شد.':(game.turn()==='w'?'نوبت سفید است.':'نوبت سیاه است.')+(game.in_check()?' شاه در کیش است.':'');$('#fenInput').value=game.fen()}
+let game,board,pieceSet='wikipedia';function update(){if(!game)return;$('#turnLabel').textContent=game.turn()==='w'?'نوبت سفید':'نوبت سیاه';const hist=game.history();$('#moveList').textContent=hist.length?hist.reduce((a,m,i)=>{if(i%2===0)a.push((Math.floor(i/2)+1)+'. '+m);else a[a.length-1]+='  '+m;return a},[]).join('   |   '):'هنوز حرکتی انجام نشده.';$('#gameStatus').textContent=game.in_checkmate()?'کیش‌ومات! بازی تمام شد.':game.in_draw()?'بازی مساوی شد.':game.in_check()?'کیش! شاه در خطر است.':game.game_over()?'بازی تمام شد.':(game.turn()==='w'?'نوبت سفید است.':'نوبت سیاه است.')+(game.in_check()?' شاه در کیش است.':'');$('#fenInput').value=game.fen();if(typeof refreshAnalysis==='function')refreshAnalysis()}
 function onDrop(source,target){let move=game.move({from:source,to:target,promotion:'q'});if(move===null)return 'snapback';update()}function onSnap(){board.position(game.fen())}
 function buildBoard(position){if(board&&typeof board.destroy==='function')board.destroy();$('#board').innerHTML='';board=Chessboard('board',{position:position||game.fen(),draggable:true,dropOffBoard:'snapback',pieceTheme:'https://chessboardjs.com/img/chesspieces/'+pieceSet+'/{piece}.png',onDrop:onDrop,onSnapEnd:onSnap});}
-function initBoard(){if(!window.Chess||!window.Chessboard){$('#board').innerHTML='<p class="muted">برای بارگذاری صفحه‌ی بازی به اینترنت و دسترسی به کتابخانه‌های شطرنج نیاز است.</p>';return}game=new Chess();buildBoard('start');update();window.addEventListener('resize',()=>{if(board)board.resize()})}
+function initBoard(){if(!window.Chess||!window.Chessboard){$('#board').innerHTML='<p class="muted">برای بارگذاری صفحه‌ی بازی به اینترنت و دسترسی به کتابخانه‌های شطرنج نیاز است.</p>';return}game=new Chess();buildBoard('start');update();refreshAnalysis();window.addEventListener('resize',()=>{if(board)board.resize()})}
 $('#resetBtn').addEventListener('click',()=>{game.reset();board.start();update();toast('بازی جدید آماده است')});$('#undoBtn').addEventListener('click',()=>{if(game.undo()){board.position(game.fen());update()}else toast('هنوز حرکتی برای برگشت نیست')});$('#flipBtn').addEventListener('click',()=>board.flip());$('#loadFen').addEventListener('click',()=>{let f=$('#fenInput').value.trim();if(game.load(f)){board.position(game.fen());update();toast('موقعیت بارگذاری شد')}else toast('کد FEN معتبر نیست')});$('#copyFen').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(game.fen());toast('FEN کپی شد')}catch(e){$('#fenInput').select();toast('کد انتخاب شد؛ کپی کن')}});initBoard();
+
+
+function readLocal(key,fallback=[]){try{return JSON.parse(localStorage.getItem(key)||JSON.stringify(fallback))}catch(e){return fallback}}
+function renderSavedGames(){const box=$('#savedGames');if(!box)return;const arr=readLocal('cv_saved_games');box.innerHTML='';if(!arr.length){box.innerHTML='<p class="muted">هنوز بازی‌ای ذخیره نشده. از میز بازی «ذخیره‌ی بازی فعلی» را بزن.</p>';return}arr.forEach((g,i)=>{const row=document.createElement('div');row.className='list-item';const info=document.createElement('div');const strong=document.createElement('strong');strong.textContent=g.name||('بازی '+(i+1));const small=document.createElement('small');small.textContent=(g.moves||0)+' حرکت • '+(g.date||'');info.append(strong,small);const actions=document.createElement('div');actions.className='action-strip';const load=document.createElement('button');load.className='btn secondary';load.textContent='بارگذاری';load.onclick=()=>{if(game&&g.fen&&game.load(g.fen)){board.position(game.fen());update();toast('موقعیت بازی بارگذاری شد');go('play')}else toast('بارگذاری ممکن نشد')};const del=document.createElement('button');del.className='btn secondary';del.textContent='حذف';del.onclick=()=>{arr.splice(i,1);localStorage.setItem('cv_saved_games',JSON.stringify(arr));renderSavedGames()};actions.append(load,del);row.append(info,actions);box.append(row)})}
+$('#saveGame').addEventListener('click',()=>{if(!game){toast('صفحه‌ی بازی هنوز آماده نیست');return}const arr=readLocal('cv_saved_games');arr.unshift({name:'بازی '+new Date().toLocaleString('fa-IR'),fen:game.fen(),pgn:game.pgn(),moves:game.history().length,date:new Date().toLocaleDateString('fa-IR')});localStorage.setItem('cv_saved_games',JSON.stringify(arr.slice(0,50)));renderSavedGames();toast('بازی روی این دستگاه ذخیره شد')});
+function renderFriends(){const box=$('#friendList');if(!box)return;const arr=readLocal('cv_friends');box.innerHTML='';if(!arr.length){box.innerHTML='<p class="muted">هنوز کسی به فهرست اضافه نشده.</p>';return}arr.forEach((n,i)=>{const row=document.createElement('div');row.className='list-item';const name=document.createElement('strong');name.textContent=n;const del=document.createElement('button');del.className='btn secondary';del.textContent='حذف';del.onclick=()=>{arr.splice(i,1);localStorage.setItem('cv_friends',JSON.stringify(arr));renderFriends()};row.append(name,del);box.append(row)})}
+$('#addFriend').addEventListener('click',()=>{const v=$('#friendName').value.trim();if(!v){toast('یک نام وارد کن');return}const arr=readLocal('cv_friends');arr.push(v);localStorage.setItem('cv_friends',JSON.stringify(arr));$('#friendName').value='';renderFriends();toast('به فهرست محلی اضافه شد')});
+function loadProfile(){const n=localStorage.getItem('cv_profile_name')||'';if($('#profileName'))$('#profileName').value=n;const st=$('#profileStatus');if(st)st.textContent=n?'نام نمایشی فعلی: '+n:'نام نمایشی هنوز تنظیم نشده است.'}
+$('#saveProfile').addEventListener('click',()=>{const n=$('#profileName').value.trim();if(!n){toast('یک نام وارد کن');return}localStorage.setItem('cv_profile_name',n);loadProfile();toast('پروفایل محلی ذخیره شد')});
+function refreshAnalysis(){if(!game)return;const sum=$('#analysisSummary');if(sum)sum.textContent='وضعیت: '+(game.game_over()?'بازی پایان یافته':game.in_check()?'شاه در کیش است':'بازی در جریان است')+' • تعداد حرکت‌ها: '+game.history().length+' • نوبت: '+(game.turn()==='w'?'سفید':'سیاه');const vals={p:1,n:3,b:3,r:5,q:9,k:0};let white=0,black=0;const b=game.board();b.forEach(row=>row.forEach(p=>{if(p)(p.color==='w'?white+=vals[p.type]:black+=vals[p.type])}));const mat=$('#materialSummary');if(mat)mat.textContent='سفید '+white+' امتیاز • سیاه '+black+' امتیاز • اختلاف '+Math.abs(white-black)}
+$('#exportPgn').addEventListener('click',()=>{if(!game){toast('اول یک بازی شروع کن');return}const pgn=game.pgn()||'[Event "ChessVerse"]\n\n*';const blob=new Blob([pgn],{type:'application/x-chess-pgn'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='chessverse-game.pgn';a.click();URL.revokeObjectURL(url)});
+document.querySelectorAll('.opening-load').forEach(b=>b.addEventListener('click',()=>{go('play');setTimeout(()=>{if(game&&game.load(b.dataset.fen)){board.position(game.fen());update();toast('موقعیت گشایش بارگذاری شد')}else toast('بارگذاری موقعیت ناموفق بود')},100)}));
 
 const themeKeys=['classic','ocean','purple','sunset','rose','mono','ice','amber','cherry','mint'];
 function setBoardTheme(t){if(!themeKeys.includes(t))t='classic';themeKeys.forEach(k=>document.body.classList.remove('theme-'+k));document.body.classList.add('theme-'+t);$('#themeSelect').value=t;document.querySelectorAll('#themeSwatches button').forEach(b=>b.classList.toggle('active',b.dataset.theme===t));try{localStorage.setItem('cv_theme',t)}catch(e){}}
